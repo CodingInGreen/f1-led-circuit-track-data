@@ -35,7 +35,7 @@ fn write_to_csv(locations: Vec<Location>) -> Result<(), Box<dyn StdError>> {
     let mut wtr = Writer::from_writer(file);
 
     // Add 'Date' to the header
-    wtr.write_record(&["Date", "X", "Y", "Z"])?;
+    //wtr.write_record(&["Date", "X", "Y", "Z"])?;
 
     for location in locations {
         wtr.serialize(&location)?;
