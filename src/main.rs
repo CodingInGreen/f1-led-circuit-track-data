@@ -15,7 +15,7 @@ struct Location {
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn StdError>> {
     // Adjust the URL if needed to ensure date information is included in the API response
-    let url = "https://api.openf1.org/v1/location?session_key=9140&driver_number=1";
+    let url = "https://api.openf1.org/v1/location?session_key=9149&driver_number=1";
 
     let response = reqwest::get(url).await?;
 
