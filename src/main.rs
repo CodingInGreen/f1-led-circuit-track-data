@@ -15,14 +15,14 @@ struct Location {
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn StdError>> {
     // Adjust the URL if needed to ensure date information is included in the API response
-    let url = "https://api.openf1.org/v1/location?session_key=9149&driver_number=1";
+    let url = "https://api.openf1.org/v1/location?session_key=9149&driver_number=81";
 
     let response = reqwest::get(url).await?;
 
     if response.status().is_success() {
         let locations: Vec<Location> = response.json().await?;
         write_to_csv(locations)?;
-        println!("Data has been written to zandvoort_data.csv");
+        println!("Data has been written to zandvoort_data_piastri.csv");
     } else {
         println!("Failed to get data: {}", response.status());
     }
@@ -31,7 +31,7 @@ async fn main() -> Result<(), Box<dyn StdError>> {
 }
 
 fn write_to_csv(locations: Vec<Location>) -> Result<(), Box<dyn StdError>> {
-    let file = File::create("zandvoort_data.csv")?;
+    let file = File::create("zandvoort_data_piastri.csv")?;
     let mut wtr = Writer::from_writer(file);
 
     // Add 'Date' to the header
